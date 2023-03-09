@@ -1,28 +1,63 @@
-const { Router } = require("express");
-const express = require("express");
-const router = express.Router();
-const { Item } = require("../models/Item");
-const { sequelize } = require("../db");
-const app = require("../app");
-const { Sauce } = require("../models");
+const express = require('express')
+const {Item} = require('../models/Item')
+const router = express.Router()
+router.use(express.json())
 
-router.get("/", async (req, res) => {
-  try {
-    const item = await Item.findAll();
-    res.json(item);
-  } catch (err) {
-    console.log(err);
-    res.status(404).send("An unexpected error occured retrieving items");
-  }
-});
+router.get("/", async (req, res, next) => {
+    try {
+      const item = await Item.findAll();
+      res.send(item);
+    } catch (error) {
+      next(error);
+    }
+  });
 
-router.get("/:id", async (req, res) => {
-  try {
-    const item = await Item.findByPk(req.params.id);
-    res.json(item);
-  } catch (err) {
-    console.log(err);
-  }
-});
+  router.get("/:id", async (req, res, next) => {
+    try {
+      const item = await Item.findByPk(req.params.id);
+      if (!item) {
+        res.status(404).send("item not found")
+      } else {
+        res.status(200).json(item);
+      }
+    } catch (error) {
+      next(error); 
+    }
+  });
+  
+  router.post('/', async (req, res) => {
+    try {
+      let newItem = await Item.create(req.body)
+      res.send(newItem)
+    } catch (error) {
+      res.send(error)
+    }
+  });
 
-module.exports = { router };
+  router.put('/:id', async (req, res) => {
+    try {
+      const updatedItem = await Item.findByPk(req.params.id)
+      if (!updatedItem) {
+        return res.status(404).send("item not found")
+      }
+      await updatedItem.update(req.body) 
+      res.send(updatedItem)
+    } catch (error) {
+      res.send(error)
+    }
+  })
+
+  router.delete('/:id', async (req, res) => {
+    try {
+      const deletedItem = await Item.findByPk(req.params.id)
+      if (!deletedItem) {
+        return res.status(404).send("item not found")
+      }
+      await deletedItem.destroy()
+      res.send("item deleted successfully")
+    } catch (error) {
+      res.send(error)
+    }
+  })
+
+module.exports = router;
