@@ -22,15 +22,27 @@ body{
 
 }
 
-main{
+.home{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
 .singleitem{
-  background-color: aqua;
-  
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 5%;
+}
+.singleitem img{
+  width: 70%;
+}
+
+.singleitem button{
+  padding: 5%;
+  margin-top: 5%;
 }
 
 section{

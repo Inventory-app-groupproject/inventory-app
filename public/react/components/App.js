@@ -9,56 +9,61 @@ import apiURL from '../api';
 
 export const App = function() {
 	const [items, setItems] = useState([]);
-	const [item, setItem] = useState()
+	const [item, setItem] = useState(); // undefined
 	const [isNewItem, setIsNewItem] = useState(false);
 
-	
-	async function fetchItems(){
-		try {
-			const response = await fetch(`${apiURL}/items`);
-			const itemData = await response.json();
-			setItems(itemData);
-		} catch (err) {
-			console.log("Oh no an error! ", err)
+	useEffect(() => {
+		async function fetchItems(){
+			try {
+				const response = await fetch(`${apiURL}/items`);
+				const itemData = await response.json();
+				setItems(itemData);
+			} catch (err) {
+				console.log("Oh no an error! ", err)
+			}
 		}
+
+		fetchItems();
+	}, [isNewItem]);
+
+	const heading = <h1 id = "page-title">Department Store - All Your Home Requirements All In One Place</h1>;
+
+	if (items.length === 0) {
+		return (
+			<>
+				{heading}
+				<p>Loading...</p>
+			</>
+		);
 	}
 
-	{/* </main>// async function addItem(){
-		try{
-			const response = await fetch(`${apiURL}/items/additem`)
-			const data = await response.json()
-			setNewItem(data)
-		}
-		catch(error){
-			console.log(error)
-		}
-	} */}
+	// single item view
+	if (item) {
+		return (
+			<>
+				{heading}
+				<main className={!item ? "home" : "singleitem"}>
+					<Item itemObj = {item} setItem = {setItem} className="singleitem"/>
+				</main>
+			</>
+		);
+	}
 
-// import {ItemList} from "./ItemList.js";
-// import {FormComponent} from "./FormComponent.js"
-
-// function App() {
-// const [isForm, setIsForm] = useState(false);
-
-//    return(
-//       <main>
-//          {!isForm ? <ItemList /> : <FormComponent />}
-//          <button onClick={() => setIsForm(!isForm)}>Show Form</button>
-//       </main>
-//    )
-// }
-
-	useEffect(() => {
-		fetchItems();
-	}, []);
+	if (isNewItem) {
+		return (
+			<>
+				{heading}
+				<NewItem setIsNewItem={setIsNewItem} />
+			</>
+		);
+	}
 
 	return (
 		<>
-			<h1 id = "page-title">Department Store - All Your Home Requirements All In One Place</h1>
+			{heading}
 			<main className={!item ? "home" : "singleitem"}>
-				{!item ? <ItemsList items = {items} setItem = {setItem}/> : <Item itemObj = {item} setItem = {setItem}/>} 
-				{!isNewItem ? <ItemsList setItem = {setItem([])} /> : <NewItem /> }
-				<button onClick={() => setIsNewItem(!isNewItem)}>Show Form</button>
+				<ItemsList items = {items} setItem = {setItem}/>
+				<button onClick={() => setIsNewItem(true)}>Add Item</button>
 			</main>
 		</>	
 	)
