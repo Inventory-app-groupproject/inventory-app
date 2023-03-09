@@ -23,17 +23,13 @@ export const App = function() {
 		}
 	}
 
-	{/* </main>// async function addItem(){
-		try{
-			const response = await fetch(`${apiURL}/items/additem`)
-			const data = await response.json()
-			setNewItem(data)
-		}
-		catch(error){
-			console.log(error)
-		}
-	} */}
+	const deleteItem = (index) => {
+		const newItems = [...items];
+		newItems.splice(index, 1);
+		setItems(newItems);
+	  };
 
+	
 // import {ItemList} from "./ItemList.js";
 // import {FormComponent} from "./FormComponent.js"
 
@@ -55,7 +51,7 @@ export const App = function() {
 	return (
 		<>
 			<h1 id = "page-title">Department Store - All Your Home Requirements All In One Place</h1>
-			<main className={!item ? "home" : "singleitem"}>
+			<main className={!item ? "home" : "singleItem"}>
 				{!item ? <ItemsList items = {items} setItem = {setItem}/> : <Item itemObj = {item} setItem = {setItem}/>} 
 				{!isNewItem ? <ItemsList setItem = {setItem([])} /> : <NewItem /> }
 				<button onClick={() => setIsNewItem(!isNewItem)}>Show Form</button>
