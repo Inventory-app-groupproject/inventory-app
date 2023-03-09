@@ -1,7 +1,20 @@
 // Gets a list off all items stored in the db 
 import React from 'react';
 import apiURL from '../api';
+<<<<<<< HEAD
 
+=======
+/* export const Sauce = (props) => {
+<<<<<<< HEAD
+=======
+
+>>>>>>> c2f6989d0a9906cb44a24e281890c8be1e01c13b
+  return <>
+    <h3>{props.sauce.name}</h3>
+    <img src={props.sauce.image} alt={props.sauce.name} />
+  </>
+} */ 
+>>>>>>> c4d95f4ab3bd505da6c131953902ee9632c5092e
 
 export const Items = function (props){
   async function fetchItems(){

@@ -15,7 +15,11 @@ router.get("/", async (req, res, next) => {
   router.get("/:id", async (req, res, next) => {
     try {
       const item = await Item.findByPk(req.params.id);
-      res.send(item);
+      if (!item) {
+        res.status(404).send("item not found")
+      } else {
+        res.status(200).json(item);
+      }
     } catch (error) {
       next(error); 
     }
@@ -32,8 +36,10 @@ router.get("/", async (req, res, next) => {
 
   router.put('/:id', async (req, res) => {
     try {
-
       const updatedItem = await Item.findByPk(req.params.id)
+      if (!updatedItem) {
+        return res.status(404).send("item not found")
+      }
       await updatedItem.update(req.body) 
       res.send(updatedItem)
     } catch (error) {
@@ -44,6 +50,9 @@ router.get("/", async (req, res, next) => {
   router.delete('/:id', async (req, res) => {
     try {
       const deletedItem = await Item.findByPk(req.params.id)
+      if (!deletedItem) {
+        return res.status(404).send("item not found")
+      }
       await deletedItem.destroy()
       res.send("item deleted successfully")
     } catch (error) {

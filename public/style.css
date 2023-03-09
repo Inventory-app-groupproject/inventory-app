@@ -5,6 +5,16 @@ body{
   background-color: rgba(56, 55, 55, 0.795);
 }
 
+<<<<<<< HEAD
+body{
+  width: 100%;
+  height: 100%;
+  margin: 0%;
+  background-color: rgba(56, 55, 55, 0.795);
+}
+
+=======
+>>>>>>> c2f6989d0a9906cb44a24e281890c8be1e01c13b
 #root{
   height:100%;
   width: 100%;
@@ -29,6 +39,7 @@ body{
 }
 
 .singleitem{
+<<<<<<< HEAD
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -43,6 +54,14 @@ body{
 .singleitem button{
   padding: 5%;
   margin-top: 5%;
+=======
+  background-color: aqua;
+<<<<<<< HEAD
+
+=======
+  
+>>>>>>> c2f6989d0a9906cb44a24e281890c8be1e01c13b
+>>>>>>> c4d95f4ab3bd505da6c131953902ee9632c5092e
 }
 
 section{
