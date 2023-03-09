@@ -1,6 +1,9 @@
 // Gets a list off all items stored in the db 
 import React from 'react';
 import apiURL from '../api';
+<<<<<<< HEAD
+
+=======
 /* export const Sauce = (props) => {
 <<<<<<< HEAD
 =======
@@ -11,6 +14,7 @@ import apiURL from '../api';
     <img src={props.sauce.image} alt={props.sauce.name} />
   </>
 } */ 
+>>>>>>> c4d95f4ab3bd505da6c131953902ee9632c5092e
 
 export const Items = function (props){
   async function fetchItems(){
@@ -24,14 +28,7 @@ export const Items = function (props){
     }
   }
 
-  // async function createItem(){
-  //   try{
-  //       const response = await fetch(apiURL + "/items")
-  //   }
-  //   catch(error){
-  //     console.log(error)
-  //   }
-  // }
+
 
   return <section onClick={fetchItems}>
     <h4 className='title'>Product Name: {props.itemObj.title}</h4>

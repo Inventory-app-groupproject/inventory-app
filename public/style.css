@@ -32,19 +32,36 @@ body{
 
 }
 
-main{
+.home{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
 .singleitem{
+<<<<<<< HEAD
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 5%;
+}
+.singleitem img{
+  width: 70%;
+}
+
+.singleitem button{
+  padding: 5%;
+  margin-top: 5%;
+=======
   background-color: aqua;
 <<<<<<< HEAD
 
 =======
   
 >>>>>>> c2f6989d0a9906cb44a24e281890c8be1e01c13b
+>>>>>>> c4d95f4ab3bd505da6c131953902ee9632c5092e
 }
 
 section{
