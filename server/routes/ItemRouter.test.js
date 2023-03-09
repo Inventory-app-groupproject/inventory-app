@@ -20,10 +20,10 @@ describe('GET /items', () => {
 // test GET /items/:id route
 describe('GET /items/:id', () => {
   it('should return an item with the specified id', async () => {
-    const newItem = await Item.create({name: 'test item'});
+    const newItem = await Item.create({title: 'test item'});
     const response = await request(app).get(`/api/items/${newItem.id}`);
     expect(response.status).toBe(200);
-    expect(response.body.name).toBe('test item');
+    expect(response.body.title).toBe('test item');
   });
 
   it('should return a 404 error if the item does not exist', async () => {
@@ -35,28 +35,31 @@ describe('GET /items/:id', () => {
 // test POST /items route
 describe('POST /items', () => {
   it('should create a new item in the database', async () => {
-    const data = {name: 'new item'};
-    const response = await request(app).post('/api/items').send(data);
+    const response = await request(app)
+      .post('/api/items')
+      .send({title: 'new item'});
     expect(response.status).toBe(200);
     const newItem = await Item.findByPk(response.body.id);
-    expect(newItem.name).toBe('new item');
+    expect(newItem.title).toBe('new item');
   });
 });
 
 // test PUT /items/:id route
 describe('PUT /items/:id', () => {
   it('should update an existing item in the database', async () => {
-    const newItem = await Item.create({name: 'test item'});
-    const data = {name: 'updated item'};
-    const response = await request(app).put(`/api/items/${newItem.id}`).send(data);
+    const newItem = await Item.create({title: 'test item'});
+    const response = await request(app)
+      .put(`/api/items/${newItem.id}`)
+      .send({title: 'updated item'});
     expect(response.status).toBe(200);
     const updatedItem = await Item.findByPk(newItem.id);
-    expect(updatedItem.name).toBe('updated item');
+    expect(updatedItem.title).toBe('updated item');
   });
 
   it('should return a 404 error if the item does not exist', async () => {
-    const data = {name: 'updated item'};
-    const response = await request(app).put('/api/items/999').send(data);
+    const response = await request(app)
+      .put('/api/items/999')
+      .send({title: 'updated item'});
     expect(response.status).toBe(404);
   });
 });
@@ -64,7 +67,7 @@ describe('PUT /items/:id', () => {
 // test DELETE /items/:id route
 describe('DELETE /items/:id', () => {
   it('should delete an existing item from the database', async () => {
-    const newItem = await Item.create({name: 'test item'});
+    const newItem = await Item.create({title: 'test item'});
     const response = await request(app).delete(`/api/items/${newItem.id}`);
     expect(response.status).toBe(200);
     const deletedItem = await Item.findByPk(newItem.id);
