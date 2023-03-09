@@ -83,4 +83,3 @@ export const App = function() {
 			</main>
 		</>	
 	)
-}
