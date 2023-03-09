@@ -3,7 +3,7 @@ const app = require("./server/app");
 // const itemRouter = require("./server/itemRouter");
 // const express = require('express')
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 1234;
 
 // app.use(express.json())
 

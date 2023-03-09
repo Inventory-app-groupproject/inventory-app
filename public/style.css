@@ -3,3 +3,59 @@
   box-sizing: border-box;
   background-color: rgb(223, 223, 223);
 }
+
+body{
+  width: 100%;
+  height: 100%;
+  margin: 0%;
+  background-color: rgba(56, 55, 55, 0.795);
+}
+
+#root{
+  height:100%;
+  width: 100%;
+  margin:0%;
+}
+
+#page-title{
+  display:block;
+  width: 96%;
+  height: 5%;
+  margin: 0% 0% 0% 0%;
+  padding: 0% 2%;
+  text-align: center;
+  font-size: 1rem;
+
+}
+
+main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.singleitem{
+  background-color: aqua;
+
+}
+
+section{
+  width: 47%;
+  margin: 1% 0% 1% 0%;
+  border: 2px solid rgba(168, 152, 152, 0.849);
+  border-radius: 3%;
+  text-align: center;
+}
+
+.title, .text{
+  padding: 0% 2%;
+}
+
+.text{
+  font-size: 90%;
+  word-wrap:break-word;
+}
+
+img{
+  width: 33%;
+}
