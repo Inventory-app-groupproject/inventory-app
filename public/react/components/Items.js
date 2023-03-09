@@ -2,6 +2,10 @@
 import React from 'react';
 import apiURL from '../api';
 /* export const Sauce = (props) => {
+<<<<<<< HEAD
+=======
+
+>>>>>>> c2f6989d0a9906cb44a24e281890c8be1e01c13b
   return <>
     <h3>{props.sauce.name}</h3>
     <img src={props.sauce.image} alt={props.sauce.name} />
