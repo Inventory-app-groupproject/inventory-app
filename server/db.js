@@ -7,4 +7,7 @@ const sequelize = new Sequelize({
     logging: false
 });
 
-module.exports = {sequelize}
+module.exports = {
+    sequelize,
+    DataTypes
+}

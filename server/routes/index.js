@@ -3,5 +3,6 @@ const router = express.Router();
 
 // different model routers
 router.use('/sauces', require('./sauces'));
+router.use('/items' , require('./ItemRouter'))
 
 module.exports = router;
