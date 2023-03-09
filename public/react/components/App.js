@@ -12,42 +12,7 @@ export const App = function() {
 	const [items, setItems] = useState([]);
 	const [item, setItem] = useState(); // undefined
 	const [isNewItem, setIsNewItem] = useState(false);
-<<<<<<< HEAD
 	const [editItem, setEditItem] = useState(false)
-=======
-
-	
-	async function fetchItems(){
-		try {
-			const response = await fetch(`${apiURL}/items`);
-			const itemData = await response.json();
-			setItems(itemData);
-		} catch (err) {
-			console.log("Oh no an error! ", err)
-		}
-	}
-
-	const deleteItem = (index) => {
-		const newItems = [...items];
-		newItems.splice(index, 1);
-		setItems(newItems);
-	  };
-
-	
-// import {ItemList} from "./ItemList.js";
-// import {FormComponent} from "./FormComponent.js"
-
-// function App() {
-// const [isForm, setIsForm] = useState(false);
-
-//    return(
-//       <main>
-//          {!isForm ? <ItemList /> : <FormComponent />}
-//          <button onClick={() => setIsForm(!isForm)}>Show Form</button>
-//       </main>
-//    )
-// }
->>>>>>> c4d95f4ab3bd505da6c131953902ee9632c5092e
 
 	useEffect(() => {
 		async function fetchItems(){
