@@ -12,9 +12,6 @@ export const App = function() {
 	const [items, setItems] = useState([]);
 	const [item, setItem] = useState(); // undefined
 	const [isNewItem, setIsNewItem] = useState(false);
-<<<<<<< HEAD
-	const [editItem, setEditItem] = useState(false)
-=======
 
 	
 	async function fetchItems(){
@@ -47,7 +44,6 @@ export const App = function() {
 //       </main>
 //    )
 // }
->>>>>>> c4d95f4ab3bd505da6c131953902ee9632c5092e
 
 	useEffect(() => {
 		async function fetchItems(){
