@@ -111,18 +111,10 @@ export const App = function() {
 
 	return (
 		<>
-<<<<<<< HEAD
 			{heading}
 			<main className={!item ? "home" : "singleitem"}>
 				<ItemsList items = {items} setItem = {setItem} setEditItem = {setItem}/>
 				<button onClick={() => setIsNewItem(true)}>Add Item</button>
-=======
-			<h1 id = "page-title">Department Store - All Your Home Requirements All In One Place</h1>
-			<main className={!item ? "home" : "singleItem"}>
-				{!item ? <ItemsList items = {items} setItem = {setItem}/> : <Item itemObj = {item} setItem = {setItem}/>} 
-				{!isNewItem ? <ItemsList setItem = {setItem([])} /> : <NewItem /> }
-				<button onClick={() => setIsNewItem(!isNewItem)}>Show Form</button>
->>>>>>> c4d95f4ab3bd505da6c131953902ee9632c5092e
 			</main>
 		</>	
 	)
