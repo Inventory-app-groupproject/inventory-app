@@ -1,14 +1,19 @@
 import React from "react"
 export function Item(props){
-    return(
-        <>
-            <h1>{props.itemObj.title}</h1>
-            <p>Description {props.itemObj.description}</p>
-            <p>Category: {props.itemObj.category}</p>
-            <p>Price: £{props.itemObj.price}</p>
-            <img src={props.itemObj.image} alt={props.itemObj.title}/>
-            <button onClick = { function(){ props.setItem() } }>Back To HomePage</button>
-            
-        </>
-    )
+    return (
+      <>
+        <h1>{props.item.title}</h1>
+        <p>Description {props.item.description}</p>
+        <p>Category: {props.item.category}</p>
+        <p>Price: £{props.item.price}</p>
+        <img src={props.item.image} alt={props.item.title} />
+        <button
+          onClick={function () {
+            props.setItem();
+          }}
+        >
+          Back To HomePage
+        </button>
+      </>
+    );
 }

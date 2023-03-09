@@ -9,21 +9,21 @@ import apiURL from '../api';
 
 export const App = function() {
 	const [items, setItems] = useState([]);
-	const [item, setItem] = useState()
-	const [isNewItem, setIsNewItem] = useState(false);
+	const [item, setItem] = useState({});
+  const [isNewItem, setIsNewItem] = useState(false);
 
-	
-	async function fetchItems(){
-		try {
-			const response = await fetch(`${apiURL}/items`);
-			const itemData = await response.json();
-			setItems(itemData);
-		} catch (err) {
-			console.log("Oh no an error! ", err)
-		}
-	}
+  async function fetchItems() {
+    try {
+      const response = await fetch(`${apiURL}/items`);
+      const itemData = await response.json();
+      setItems(itemData);
+    } catch (err) {
+      console.log("Oh no an error! ", err);
+    }
+  }
 
-	{/* </main>// async function addItem(){
+  {
+    /* </main>// async function addItem(){
 		try{
 			const response = await fetch(`${apiURL}/items/additem`)
 			const data = await response.json()
@@ -32,34 +32,57 @@ export const App = function() {
 		catch(error){
 			console.log(error)
 		}
-	} */}
+	} */
+  }
 
-// import {ItemList} from "./ItemList.js";
-// import {FormComponent} from "./FormComponent.js"
+  // import {ItemList} from "./ItemList.js";
+  // import {FormComponent} from "./FormComponent.js"
 
-// function App() {
-// const [isForm, setIsForm] = useState(false);
+  // function App() {
+  // const [isForm, setIsForm] = useState(false);
 
-//    return(
-//       <main>
-//          {!isForm ? <ItemList /> : <FormComponent />}
-//          <button onClick={() => setIsForm(!isForm)}>Show Form</button>
-//       </main>
-//    )
-// }
+  //    return(
+  //       <main>
+  //          {!isForm ? <ItemList /> : <FormComponent />}
+  //          <button onClick={() => setIsForm(!isForm)}>Show Form</button>
+  //       </main>
+  //    )
+  // }
 
-	useEffect(() => {
-		fetchItems();
-	}, []);
+  useEffect(() => {
+    fetchItems();
+  }, []);
 
-	return (
-		<>
-			<h1 id = "page-title">Department Store - All Your Home Requirements All In One Place</h1>
-			<main className={!item ? "home" : "singleitem"}>
-				{!item ? <ItemsList items = {items} setItem = {setItem}/> : <Item itemObj = {item} setItem = {setItem}/>} 
-				{!isNewItem ? <ItemsList setItem = {setItem([])} /> : <NewItem /> }
-				<button onClick={() => setIsNewItem(!isNewItem)}>Show Form</button>
-			</main>
-		</>	
-	)
+  const handleCreateItem = () => {
+    setIsNewItem(true);
+  };
+
+  const handleEditItem = () => {
+    setIsNewItem(false);
+  };
+
+  return (
+    <>
+      {!item ? (
+        <>
+          <ItemsList items={items} setItem={setItem} />
+          <button onClick={handleCreateItem}>Create Item</button>
+        </>
+      ) : (
+        <>
+          <Item item={item} setItem={setItem} />
+          <button onClick={handleEditItem}>Edit Item</button>
+        </>
+      )}
+      {isNewItem && <NewItem setNewItem={setIsNewItem} />}
+    </>
+    // <>
+    // 	<h1 id = "page-title">Department Store - All Your Home Requirements All In One Place</h1>
+    // 	<main className={!item ? "home" : "singleitem"}>
+    // 		{!item ? <ItemsList items = {items} setItem = {setItem}/> : <Item itemObj = {item} setItem = {setItem}/>}
+    // 		{!isNewItem ? <ItemsList setItem = {setItem([])} /> : <NewItem /> }
+    // 		<button onClick={() => setIsNewItem(!isNewItem)}>Show Form</button>
+    // 	</main>
+    // </>
+  );
 }
