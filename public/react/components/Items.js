@@ -17,11 +17,13 @@ export const Items = function (props){
 
 
 
-  return <section onClick={fetchItems}>
-    <h4 className='title'>Product Name: {props.itemObj.title}</h4>
-    <p className='text'>Description: {props.itemObj.description}</p>
-    <p className='text'>Price: £{props.itemObj.price}</p>
-    <p className='text'>Category: {props.itemObj.category}</p>
-    <img src={props.itemObj.image} alt={props.itemObj.name} />
-  </section>
+  return( 
+    <section onClick={fetchItems}>
+      <h4 className='title'>Product Name: {props.itemObj.title}</h4>
+      <p className='text'>Description: {props.itemObj.description}</p>
+      <p className='text'>Price: £{props.itemObj.price}</p>
+      <p className='text'>Category: {props.itemObj.category}</p>
+      <img src={props.itemObj.image} alt={props.itemObj.name} />
+    </section>
+  )
 }

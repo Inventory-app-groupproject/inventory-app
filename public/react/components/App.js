@@ -30,7 +30,7 @@ export const App = function() {
 		fetchItems();
 	}, [isNewItem, editItem, item]);
 
-	const heading = <h1 id = "page-title">Department Store - All Your Home Requirements All In One Place</h1>;
+	 const heading = <h1 id={!item ? "page-title": "singlepagetitle"}>Department Store - All Your Home Requirements All In One Place</h1>
 
 	if (items.length === 0) {
 		return (
@@ -45,10 +45,10 @@ export const App = function() {
 	if (item) {
 		return (
 			<>
+				
 				{heading}
 				<main className={!item ? "home" : "singleitem"}>
 					<Item itemObj = {item} setItem = {setItem} setEditItem = {setEditItem} className="singleitem"/>
-					{/* <EditItem setEditItem={setEditItem}/> */}
 				</main>
 			</>
 		);
