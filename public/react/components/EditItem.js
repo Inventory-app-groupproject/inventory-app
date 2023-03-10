@@ -21,15 +21,15 @@ export function EditItem(props) {
     return(
         <form action={`${apiURL}/items/${props.id}`} onSubmit={onSubmit}>
             <label htmlFor="title">Title</label>
-            <input id="title" name="title" type={"text"}></input>
+            <input  id="title" name="title" type={"text"}></input>
             
             <label htmlFor="description">Description</label>
-            <input id="description" name="description" type={"text"}></input>
+            <input  id="description" name="description" type={"text"}></input>
             
             <label htmlFor="category">Category</label>
-            <input id="category" name="category" type={"text"}></input>
+            <input  id="category" name="category" type={"text"}></input>
             
-            <label htmlFor="price">Price</label>
+            <label  htmlFor="price">Price</label>
             <input id="price" name="price" type={"number"}></input>
 
             <button>Submit</button>

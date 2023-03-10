@@ -50,6 +50,23 @@ section{
   .singleitem img{
     width: 70%;
   }
+  
+  form{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 150%;
+  }
+
+  label{
+    margin-top:5%
+  }
+
+  input{
+    text-align: center;
+    font-size: 100%;
+  }
 }
 
 @media ((min-width: 768px) and (max-width:1451px)){
@@ -74,6 +91,29 @@ section{
 
   button{
     margin-top: 0%;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+    font-size: 150%;
+  }
+
+  label{
+    margin-top: 2%;
+  }
+
+  input{
+    width: 23%;
+    font-size: 120%;
+    text-align: center;
+  }
+
+  form button{
+    padding:2%;
+    width: 20%
   }
 
 }
@@ -104,6 +144,29 @@ section{
 
   .singleitem button{
     margin-top:2%
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+    font-size: 150%;
+  }
+
+  label{
+    margin-top: 2%;
+  }
+
+  input{
+    width: 23%;
+    font-size: 120%;
+    text-align: center;
+  }
+
+  form button{
+    padding:2%;
+    width: 20%
   }
 }
 
